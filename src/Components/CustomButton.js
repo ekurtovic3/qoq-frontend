@@ -2,10 +2,12 @@ import * as React from "react";
 import { styled } from "@mui/material/styles";
 import Button from "@mui/material/Button";
 
+
 const CustomButton = styled(Button)({
   boxShadow: "none",
   textTransform: "none",
   fontSize: 20,
+  margin: "2%",
   padding: "6px 12px",
   border: "1px solid",
   lineHeight: 3,
@@ -38,6 +40,6 @@ const CustomButton = styled(Button)({
   }
 });
 
-export default function MyButton() {
-  return <CustomButton  variant="contained">START NEW GAME</CustomButton>;
+export default function MyButton(props) {
+  return <CustomButton  variant="contained" href="/game">{props.title}</CustomButton>;
 }

@@ -1,0 +1,20 @@
+.Game {
+
+}
+
+.div1{
+    width: 20rem;
+    background-color: black;
+    height: 25rem;
+    padding: 10%;
+    border: 2px solid;
+    justify-content: left;
+ align-items: left;
+
+}
+
+.photo {
+    float: left;
+    height: 10%;
+    width: 10%; 
+}

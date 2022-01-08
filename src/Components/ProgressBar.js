@@ -17,7 +17,7 @@ const ProgressBar = (props) => {
 };
 
 export const  ProgressBarContainer = (props) => {
-    let [percentRange, setProgress] = useState(50);
+    let [percentRange, setProgress] = useState(props.health);
     return (
         <div className="container">
             <ProgressBar percentRange={percentRange}/>

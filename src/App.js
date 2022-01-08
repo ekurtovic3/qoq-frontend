@@ -1,9 +1,15 @@
-import React from "react";
+import React,{useState,useContext} from "react";
 import './App.css'
 import { BrowserRouter } from "react-router-dom";
 import MainRouter from "./router/mainRouter";
+
+
+
 function App() {  
+
+
   return (
+   
    <div className="App">
     <BrowserRouter>
     <MainRouter />
@@ -11,4 +17,4 @@ function App() {
   );
 }
 
-export default App;
+export  {App};

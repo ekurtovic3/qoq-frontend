@@ -40,7 +40,7 @@ const CustomButton = styled(Button)({
   }
 });
 
-export default function MyButton(props) {
-  return <CustomButton  variant="contained" href={`/game/${props.id}`} >{props.title}</CustomButton>;
+export default function ActionButton(props) {
+  return <CustomButton  variant="contained"  >{props.title}</CustomButton>;
   
 }

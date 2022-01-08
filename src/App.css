@@ -1,6 +1,7 @@
 
 .App {
   text-align: center;
+  text: white;
  /* background-color: #000000; */
  display: grid;
  justify-content: center;

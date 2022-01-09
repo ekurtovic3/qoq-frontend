@@ -1,12 +1,10 @@
-import React, { useState, useCallback} from "react";
-import MyButton from './CustomButton'
+import React, { useState} from "react";
 import ToggleButton from '@mui/material/ToggleButton'
 import ToggleButtonGroup from '@mui/material/ToggleButtonGroup'
 import { Button } from "@mui/material";
 import axios from "axios";
 
 function Home() {
-  const [gameId, setGameId] = useState(1);
 
   const [alignment, setAlignment] = useState("EASY");
 
@@ -14,14 +12,9 @@ function Home() {
     setAlignment(newAlignment);
   };
 
- // const [isLoading, setIsLoading] = useState(false);
-  //const [error, setError] = useState(null);
-
-
-  const pom = () => {
+  const createGame = () => {
     axios.post("http://localhost:8081/api/game", JSON.stringify("EASY"), requestOptions)
       .then(res => {
-        setGameId(res.data.id)
         window.location.href=`/game/${res.data.id}`;
       }
       )
@@ -40,8 +33,7 @@ function Home() {
 
   return (
     <React.Fragment>
-      <Button onClick={pom} >Test BUTTON</Button>
-      <MyButton onClick={pom} title={'START NEW GAME'} id={gameId} />
+      <Button variant="contained" onClick={createGame} >START NEW GAME</Button>
       <ToggleButtonGroup
         color="info"
         value={alignment}

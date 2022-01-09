@@ -1,7 +1,6 @@
-import React,{useContext}from "react";
+import React from "react";
 import { Button } from "@mui/material";
-import axios from "axios";
-
+import  './ActionBar.css'
 
 const  Home=({
     moveAction,
@@ -22,9 +21,9 @@ const  Home=({
      }
  
     return (
-    <div>
+    <div className="actionBar">
     <div><Button variant="contained" onClick={handleMove}>Move</Button></div>
-    <div><Button variant="contained" onClick={handleFight} >Fight</Button> <Button onClick={handleFlee}  variant="contained" disabled>FLEE</Button> </div>
+    <div><Button variant="contained" onClick={handleFight} >Fight</Button> <Button onClick={handleFlee}  variant="contained" >FLEE</Button> </div>
     </div>
     );
 }

@@ -41,6 +41,11 @@ const CustomButton = styled(Button)({
 });
 
 export default function MyButton(props) {
-  return <CustomButton  variant="contained" href={`/game/${props.id}`} >{props.title}</CustomButton>;
+  
+  const createGameHandler =()=>{
+    props.action();
+  }
+
+   return <CustomButton onClick={createGameHandler} variant="contained" href={`/game/${props.id}`} >{props.title}</CustomButton>;
   
 }

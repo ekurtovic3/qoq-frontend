@@ -1,20 +1,17 @@
-import React,{useContext}from "react";
+import React from "react";
 import './Game.css'
-import ActionButton from './ActionButton'
+import ActionBar from './ActionBar'
 import {ProgressBarContainer} from './ProgressBar';
 import wepon from './wepon.png'
 import die from './die.gif'
 import monster from './monster.png'
 import {useParams} from 'react-router-dom';
-import { Button } from "@mui/material";
 import axios from "axios";
 
 const Game=(props)=> { 
   const {id} = useParams();
-
-  console.log("ID je ")
-  console.log(id)
-
+  console.log("ID je ",id)
+ 
   const requestOptions = {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
@@ -22,9 +19,8 @@ const Game=(props)=> {
  
   };
 
-
  const moveAction =()=>{
-  axios.post("http://localhost:8081/api/game/2/move", requestOptions)
+  axios.post("http://localhost:8081/api/game/1/move", requestOptions)
   .then(res => {console.log(res.data)
     if(res.data.monster==null) console.log("NEMA MONSTERA")
   }
@@ -46,10 +42,8 @@ const Game=(props)=> {
 <div>Poruka</div>
 <div className="div2"><img className="gifs" src={die} alt="Die amim" /> <img className="gifs" src={monster} alt="Die amim" /> </div>
 </div>
-
-<div><Button variant="contained"  onClick={moveAction}  >Move</Button></div>
-<div><Button variant="contained"  onClick={fightAction} >Fight</Button> <Button  variant="contained" onClick={fleeAction} disabled>FLEE</Button> </div>
-    </div>
+<ActionBar moveAction={moveAction} fightAction={fightAction} fleeAction={fleeAction}/>
+   </div>
   );
 }
 

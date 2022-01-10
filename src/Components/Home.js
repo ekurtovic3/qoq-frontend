@@ -13,11 +13,10 @@ function Home() {
   };
 
   const createGame = () => {
-    axios.post("http://localhost:8081/api/game", JSON.stringify("EASY"), requestOptions)
+    axios.post("http://localhost:8081/api/game", JSON.stringify("HARD"), requestOptions)
       .then(res => {
         window.location.href=`/game/${res.data.id}`;
-      }
-      )
+      })
       .catch(error => console.log(error));
 
   }

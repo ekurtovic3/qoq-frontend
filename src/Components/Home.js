@@ -6,14 +6,14 @@ import axios from "axios";
 
 function Home() {
 
-  const [alignment, setAlignment] = useState("EASY");
+  const [alignment, setAlignment] = useState("MEDIUM");
 
   const handleChange = (event, newAlignment) => {
     setAlignment(newAlignment);
   };
 
   const createGame = () => {
-    axios.post("http://localhost:8081/api/game", JSON.stringify("HARD"), requestOptions)
+    axios.post("http://localhost:8081/api/game", JSON.stringify("MEDIUM"), requestOptions)
       .then(res => {
         window.location.href=`/game/${res.data.id}`;
       })

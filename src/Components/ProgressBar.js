@@ -1,5 +1,5 @@
 
-import React, {useState} from 'react';
+import React from 'react';
 import './progress-bar.css';
 
 const Range = (props) => {
@@ -20,7 +20,6 @@ export const  ProgressBarContainer = (props) => {
     return (
         <div className="container">
             <ProgressBar percentRange={props.health}/>
-
         </div>
     );
 };

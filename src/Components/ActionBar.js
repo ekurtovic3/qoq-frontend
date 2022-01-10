@@ -6,7 +6,8 @@ const  Home=({
     moveAction,
     fightAction,
     fleeAction,
-    monster
+    monster,
+    endGame
 })=> {
 
     const handleMove = () => {
@@ -23,8 +24,9 @@ const  Home=({
  
     return (
     <div className="actionBar">
-    <div><Button disabled={monster} variant="contained" onClick={handleMove}>Move</Button></div>
-    <div ><Button disabled={!monster} variant="contained" onClick={handleFight} >Fight</Button> <Button disabled={!monster} onClick={handleFlee}  variant="contained" >FLEE</Button> </div>
+
+{!endGame ?  <div><Button disabled={monster} variant="contained" onClick={handleMove}>Move</Button></div>:<></>}
+  {!endGame ?   <div ><Button disabled={!monster} variant="contained" onClick={handleFight} >Fight</Button> <Button disabled={!monster} onClick={handleFlee}  variant="contained" >FLEE</Button> </div>:<></>}
     </div>
     );
 }

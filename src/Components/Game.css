@@ -1,8 +1,5 @@
-.Game {
 
-}
-
-.div1{
+.game{
     width: 30rem;
     background-color: black;
     height: 25rem;
@@ -13,7 +10,7 @@
 
 }
 
-.div2{
+.actionPlayer{
     display: inline-flex;
 }
 .photo {
@@ -33,6 +30,4 @@
     /* height: fit-content; */
     width: 40%;
 }
- .bar{
-    display: flex;
- }
+ 

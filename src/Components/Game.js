@@ -1,16 +1,11 @@
 import React, { useState } from "react";
 import './Game.css'
 import ActionBar from './ActionBar'
-import { ProgressBarContainer } from './ProgressBar';
 import { useParams } from 'react-router-dom';
 import axios from "axios";
-import wepon from './img/wepon.png'
-import die from './img/die.gif'
-import flee from './img/flee.gif'
-import move from './img/move.gif'
 import monsterImg from './img/monster.png'
-import heal from './img/heal.png'
-import standImg from './img/stand.gif'
+import PlayerInfoBar from "./PlayerInfoBar";
+import Player from './Player'
 
 const Game = (props) => {
   const [message, setMessage] = useState("")
@@ -91,28 +86,14 @@ const Game = (props) => {
       .catch(error => console.log(error));
   }
 
-  function MyCondition(props) {
-    const type = props.type;
-    if (type == 1) return <img id="playerGif" src={standImg} alt="Die amim" />
-    else if (type == 2) return <img id="playerGif" src={move} alt="Die amim" />
-    else if (type == 3) return <img id="playerGif" src={die} alt="Die amim" />
-    else if (type == 4) return <img id="playerGif" src={flee} alt="Die amim" />
-
-    return <img id="playerGif" src={standImg} alt="Die amim" />
-  }
-
   return (
     <div >
       <label>Current dungeon {dongeonCount}</label>
-      <div className="div1">
-        <ProgressBarContainer health={player.health}></ProgressBarContainer>
-        <div className="bar">
-          <div ><img className="photo" src={wepon} alt="Logo" /> <label >{player.damage}</label></div>
-          <div ><img className="photo" src={heal} onClick={healAction} alt="Logo" /> <label >{player.healingPoting}</label></div>
-        </div>
+      <div className="game">
+      <PlayerInfoBar health={player.health} player={player} healAction={healAction}/>
         <label>{message}</label>
-        <div className="div2"><MyCondition type={actionGif} />
-          {monster ? <img id="monsterImg" src={monsterImg} alt="Die amim" /> : <></>}
+        <div className="actionPlayer"><Player type={actionGif} />
+          {monster ? <img id="monsterImg" src={monsterImg} alt="monster" /> : <></>}
         </div>
       </div>
       <ActionBar endGame={endGame} monster={monster} moveAction={moveAction} fightAction={fightAction} fleeAction={fleeAction} />

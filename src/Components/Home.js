@@ -13,7 +13,7 @@ function Home() {
   };
 
   const createGame = () => {
-    axios.post("http://localhost:8081/api/game", JSON.stringify("MEDIUM"), requestOptions)
+    axios.post("http://localhost:8081/api/game", alignment, requestOptions)
       .then(res => {
         window.location.href=`/game/${res.data.id}`;
       })
@@ -32,7 +32,7 @@ function Home() {
 
   return (
     <React.Fragment>
-      <Button variant="contained" onClick={createGame} >START NEW GAME</Button>
+      <Button variant="contained" size='large' onClick={createGame} >START NEW GAME</Button>
       <ToggleButtonGroup
         color="info"
         value={alignment}

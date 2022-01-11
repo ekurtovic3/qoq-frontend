@@ -6,7 +6,7 @@ import axios from "axios";
 
 function Home() {
 
-  const [alignment, setAlignment] = useState("MEDIUM");
+  const [alignment, setAlignment] = useState("EASY");
 
   const handleChange = (event, newAlignment) => {
     setAlignment(newAlignment);
